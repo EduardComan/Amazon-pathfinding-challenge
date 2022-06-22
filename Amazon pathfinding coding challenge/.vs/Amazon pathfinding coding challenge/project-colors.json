@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6c2c2394-802d-43b8-89eb-c88c7d57b344": {
+      "ProjectGuid": "6c2c2394-802d-43b8-89eb-c88c7d57b344",
+      "DisplayName": "Amazon pathfinding coding challenge",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
