@@ -1,5 +1,3 @@
 ﻿  Map.cpp
 D:\Amazon pathfinding coding challenge\Amazon pathfinding coding challenge\Map.cpp(29,8): warning C4930: 'Node emptyNode(void)': prototyped function not called (was a variable definition intended?)
-  Source.cpp
-  Generating Code...
   Amazon pathfinding coding challenge.vcxproj -> D:\Amazon pathfinding coding challenge\x64\Debug\Amazon pathfinding coding challenge.exe

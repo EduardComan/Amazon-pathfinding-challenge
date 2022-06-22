@@ -100,7 +100,7 @@ std::vector<Node> Map::GetNeighbours(Node node)
 			int checkY = node.GetNodePosition().second + y;
 
 			//adding the nodes if they are on the grid
-			if (checkX >= 0 && checkX <= mapHeight && checkY >= 0 && checkY <= mapWidth) {
+			if (checkX >= 0 && checkX < mapHeight && checkY >= 0 && checkY < mapWidth) {
 				neighbours.push_back(grid[checkX][checkY]);
 			}
 		}
@@ -123,10 +123,6 @@ int Map::GetDistance(Node firstNode, Node secondNode)
 
 void Map::FindPath(std::pair<int, int> startPosition, std::pair<int, int> deliveryPosition)
 {
-	grid[3][3].SetWalkable(false);
-	grid[3][2].SetWalkable(false);
-	//grid[4][2].SetWalkable(false);
-
 	Node startNode = grid[startPos.first][startPos.second];
 	Node finishNode = grid[finishPos.first][finishPos.second];
 
@@ -222,7 +218,9 @@ void Map::RetracePath(Node startNode, Node finishNode)
 
 void Map::GenerateRandomObstacles(int dimension)
 {
+	std::vector<std::pair<int, int>> pos;
 	std::pair<int, int> generatedPair;
+
 	for (int i = 0; i < dimension; i++) {
 		std::random_device rd;
 		std::mt19937 gen(rd());
@@ -230,7 +228,19 @@ void Map::GenerateRandomObstacles(int dimension)
 		std::uniform_int_distribution<> seed2(0, mapWidth);
 
 		generatedPair = std::make_pair(seed1(gen), seed2(gen));
+		grid[generatedPair.first][generatedPair.second].SetWalkable(false);
+		pos.push_back(generatedPair);
 	}
 
-	grid[generatedPair.first][generatedPair.second].SetWalkable(false);
+	//printing generated positions
+	std::cout << "\nObstacle positions: [";
+	for (int i = 0; i < pos.size(); i++) {
+		std::cout << "(" << pos[i].first << ", " << pos[i].second << ")";
+		if (i < pos.size() - 1) {
+			std::cout << ", ";
+		}
+		else {
+			std::cout << "]\n";
+		}
+	}
 }

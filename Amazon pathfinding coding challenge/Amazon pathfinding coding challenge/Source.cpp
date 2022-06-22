@@ -45,7 +45,7 @@ int main()
 
 	map.PrintDetails();
 
-	std::cout << "How do you want to find the shortest path?\n ";
+	std::cout << "How do you want to find the shortest path?\n";
 
 	std::cout << "1. Without any obstacles\n";
 	std::cout << "2. With obstacles\n";
